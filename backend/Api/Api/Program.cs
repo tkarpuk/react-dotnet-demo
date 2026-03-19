@@ -1,6 +1,10 @@
+using Api.Books;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddSingleton<IBookRepository, BookRepository>();
 
 var app = builder.Build();
 
@@ -12,5 +16,7 @@ app.MapGet("/hello", () =>
 {
     return "Hello, world!";
 });
+
+app.MapBookEndpoints();
 
 app.Run();

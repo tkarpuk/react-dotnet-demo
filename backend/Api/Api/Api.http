@@ -1,6 +1,11 @@
 @Host = http://localhost:5156
 
+### Hello!
 GET {{Host}}/hello
+Accept: application/json
+
+### get all books
+GET {{Host}}/api/books
 Accept: application/json
 
 ###
