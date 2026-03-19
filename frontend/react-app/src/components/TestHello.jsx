@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-import { GetHello } from '../api/BooksApi';
+import { getHello } from '../api/BooksApi';
 
 export default function TestHello() {
     const [hello, setHello] = useState('');
 
     useEffect(() => {
-        GetHello()
+        getHello()
         .then(res => setHello(res))
         .catch(err => setHello(err));
     }, []);

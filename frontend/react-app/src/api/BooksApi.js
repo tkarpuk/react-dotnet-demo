@@ -1,6 +1,6 @@
 const BASE_URL = 'http://localhost:5156';
 
-export async function GetHello() {
+export async function getHello() {
     const response = await fetch(`${BASE_URL}/hello`);
     if (!response.ok) {
         throw new Error("api:GetHello() - request failed");
@@ -9,7 +9,7 @@ export async function GetHello() {
     return await response.text();
 }
 
-export async function GetBooks() {
+export async function getBooks() {
     const response = await fetch(`${BASE_URL}/api/books`);
     if (!response.ok) {
         throw new Error("api:GetBooks() - request failed");

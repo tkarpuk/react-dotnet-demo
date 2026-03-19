@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { GetBooks } from "../api/BooksApi";
+import { getBooks } from "../api/BooksApi";
 
 export default function BooksList() {
     const [books, setBooks] = useState([]);
     useEffect(()=> {
-        GetBooks()
+        getBooks()
         .then(res => setBooks(res))
         .catch(err => console.error(err));
     }, []);
