@@ -21,6 +21,13 @@ namespace Api.Books
                     ? Results.NotFound()
                     : Results.Ok(book);
             });
+
+            group.MapPost("/", (Book book, IBookRepository repo) =>
+            {
+                var createdBook = repo.Create(book);
+
+                return Results.Created($"/api/books/{createdBook.Id}", createdBook);
+            });
         }
     }
 }
