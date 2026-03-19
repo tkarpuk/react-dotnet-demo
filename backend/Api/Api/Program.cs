@@ -11,7 +11,7 @@ var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 app.UseCors("demo");
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 app.MapGet("/hello", () =>
 {
