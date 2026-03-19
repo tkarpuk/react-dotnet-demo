@@ -1,4 +1,6 @@
-﻿namespace Api.Books
+﻿using Microsoft.AspNetCore.Builder;
+
+namespace Api.Books
 {
     public static class BookEndpoints
     {
@@ -9,6 +11,15 @@
             group.MapGet("/", (IBookRepository repo) =>
             {
                 return Results.Ok(repo.GetAll());
+            });
+
+            group.MapGet("/{id:int}", (int id, IBookRepository repo) =>
+            {
+                var book = repo.GetById(id);
+
+                return book is null
+                    ? Results.NotFound()
+                    : Results.Ok(book);
             });
         }
     }

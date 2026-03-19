@@ -8,4 +8,6 @@ Accept: application/json
 GET {{Host}}/api/books
 Accept: application/json
 
-###
+### get book by id
+GET {{Host}}/api/books/1
+Accept: application/json
