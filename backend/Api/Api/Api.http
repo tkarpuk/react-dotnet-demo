@@ -1,0 +1,6 @@
+@Host = http://localhost:5156
+
+GET {{Host}}/hello
+Accept: application/json
+
+###
