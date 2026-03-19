@@ -28,6 +28,13 @@ namespace Api.Books
 
                 return Results.Created($"/api/books/{createdBook.Id}", createdBook);
             });
+
+            group.MapPut("/{id:int}", (int id, Book book, IBookRepository repo) =>
+            {
+                bool result = repo.Update(id, book);
+
+                return result ? Results.NoContent() : Results.NotFound();
+            });
         }
     }
 }
