@@ -24,6 +24,10 @@ namespace Api.Books
 
             group.MapPost("/", (Book book, IBookRepository repo) =>
             {
+                var errors = BookValidator.Validate(book);
+                if (errors.Count > 0)
+                    return Results.ValidationProblem(errors);
+
                 var createdBook = repo.Create(book);
 
                 return Results.Created($"/api/books/{createdBook.Id}", createdBook);
@@ -31,6 +35,10 @@ namespace Api.Books
 
             group.MapPut("/{id:int}", (int id, Book book, IBookRepository repo) =>
             {
+                var errors = BookValidator.Validate(book);
+                if (errors.Count > 0)
+                    return Results.ValidationProblem(errors);
+
                 bool result = repo.Update(id, book);
 
                 return result ? Results.NoContent() : Results.NotFound();

@@ -39,3 +39,15 @@ Content-type: application/json
 ### delete a book
 DELETE {{Host}}/api/books/1
 Accept: application/json 
+
+### check validation
+POST {{Host}}/api/books
+Content-type: application/json
+
+{
+  "id": 0,
+  "title": "",
+  "author": "",
+  "year": 1,
+  "price": 0
+}
