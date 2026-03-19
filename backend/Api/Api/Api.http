@@ -35,3 +35,7 @@ Content-type: application/json
   "year": 2008,
   "price": 35.99
 }
+
+### delete a book
+DELETE {{Host}}/api/books/1
+Accept: application/json 

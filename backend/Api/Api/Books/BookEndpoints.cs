@@ -35,6 +35,13 @@ namespace Api.Books
 
                 return result ? Results.NoContent() : Results.NotFound();
             });
+
+            group.MapDelete("/{id:int}", (int id, IBookRepository repo) =>
+            {
+                bool result = repo.Delete(id);
+
+                return result ? Results.NoContent() : Results.NotFound();
+            });
         }
     }
 }
