@@ -1,13 +1,26 @@
 import { useEffect, useState } from "react";
-import { getBooks } from "../api/BooksApi";
+import { deleteBook, getBooks } from "../api/BooksApi";
 
 export default function BooksList() {
     const [books, setBooks] = useState([]);
-    useEffect(()=> {
+
+    function loadBooks() {
         getBooks()
         .then(res => setBooks(res))
         .catch(err => console.error(err));
+    }
+
+    useEffect(()=> {
+        loadBooks();
     }, []);
+
+    function handleDelete(id) {
+        if (!confirm("Are you sure you want to delete this book?")) return;
+
+        deleteBook(id)
+        .then(() => loadBooks())
+        .catch(err => console.error(err));
+    }
 
     return (
         <div>
@@ -33,7 +46,7 @@ export default function BooksList() {
                         <td>{b.year}</td>
                         <td>
                             <button>Edit</button>{' '}
-                            <button>Delete</button>
+                            <button onClick={() => handleDelete(b.id)}>Delete</button>
                         </td>
                     </tr>
                     ))}

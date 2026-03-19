@@ -17,3 +17,11 @@ export async function getBooks() {
 
     return await response.json();    
 }
+
+export async function deleteBook(id) {
+    const response = await fetch(`${BASE_URL}/api/books/${id}`, 
+        { method: 'DELETE' });
+    if (!response.ok) {
+        throw new Error(`api:deleteBook() - request failed id = ${id}`);
+    }  
+}
