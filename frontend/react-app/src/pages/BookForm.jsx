@@ -59,7 +59,7 @@ export default function BookForm() {
         <div className="col-md-6">
             <div className="card shadow-sm">
                 <div className="card-body">
-                    <h2>BookForm ({id})</h2>
+                    {id ? <h4>Edit book #{id}</h4> : <h4>Add a new book</h4>}
                     <form onSubmit={handleSubmit}>
                         <div className="mb-3">
                             <label className="form-label">Title</label> <br />
