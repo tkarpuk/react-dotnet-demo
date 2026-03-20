@@ -9,8 +9,10 @@ export async function getHello() {
     return await response.text();
 }
 
-export async function getBooks() {
-    const response = await fetch(`${BASE_URL}/api/books`);
+export async function getBooks(params) {
+    const url = `${BASE_URL}/api/books?${params.toString()}`;
+    //console.log(url);
+    const response = await fetch(url);
     if (!response.ok) {
         throw new Error("api:GetBooks() - request failed");
     }
