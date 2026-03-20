@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { deleteBook, getBooks } from "../api/BooksApi";
 
 export default function BooksList() {
+    const navigate = useNavigate();
     const [books, setBooks] = useState([]);
 
     function loadBooks() {
@@ -25,7 +27,7 @@ export default function BooksList() {
     return (
         <div>
             <h2>Books List</h2>
-            <p><button>Add Book</button></p>
+            <p><button onClick={() => navigate("books/new")}>Add Book</button></p>
             <table border="" width="80%">
                 <thead>
                     <tr>
@@ -45,7 +47,7 @@ export default function BooksList() {
                         <td>{b.author}</td>
                         <td>{b.year}</td>
                         <td>
-                            <button>Edit</button>{' '}
+                            <button onClick={() => navigate(`books/edit/${b.id}`)}>Edit</button>{' '}
                             <button onClick={() => handleDelete(b.id)}>Delete</button>
                         </td>
                     </tr>
