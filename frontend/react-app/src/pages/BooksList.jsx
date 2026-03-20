@@ -35,6 +35,7 @@ export default function BooksList() {
                         <th>Title</th>
                         <th>Author</th>
                         <th>Year</th>
+                        <th>Price</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -46,6 +47,7 @@ export default function BooksList() {
                         <td>{b.title}</td>
                         <td>{b.author}</td>
                         <td>{b.year}</td>
+                        <td>{b.price}</td>
                         <td>
                             <button onClick={() => navigate(`books/edit/${b.id}`)}>Edit</button>{' '}
                             <button onClick={() => handleDelete(b.id)}>Delete</button>
