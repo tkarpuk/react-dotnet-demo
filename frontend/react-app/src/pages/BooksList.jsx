@@ -16,8 +16,8 @@ export default function BooksList() {
         loadBooks();
     }, []);
 
-    function handleDelete(id) {
-        if (!confirm("Are you sure you want to delete this book?")) return;
+    function handleDelete(id, title) {
+        if (!confirm(`#${id}  '${title}'. Are you sure you want to delete this book?`)) return;
 
         deleteBook(id)
         .then(() => loadBooks())
@@ -50,7 +50,7 @@ export default function BooksList() {
                         <td>{b.price}</td>
                         <td>
                             <button onClick={() => navigate(`books/edit/${b.id}`)} className="btn btn-sm btn-primary me-2">Edit</button>{'    '}
-                            <button onClick={() => handleDelete(b.id)} className="btn btn-sm btn-danger">Delete</button>
+                            <button onClick={() => handleDelete(b.id, b.title)} className="btn btn-sm btn-danger">Delete</button>
                         </td>
                     </tr>
                     ))}
