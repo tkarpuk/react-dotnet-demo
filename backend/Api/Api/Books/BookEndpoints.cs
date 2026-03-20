@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Api.Paging;
 
 namespace Api.Books
 {
@@ -8,9 +8,15 @@ namespace Api.Books
         {
             var group = app.MapGroup("/api/books");
 
-            group.MapGet("/", (IBookRepository repo) =>
+            group.MapGet("/", ([AsParameters] BookRequest req, IBookRepository repo) =>
             {
-                return Results.Ok(repo.GetAll());
+                var books = repo.GetAll();
+                if (req.Author is not null)
+                {
+                    books = books.Where(b => b.Author.StartsWith(req.Author.Trim(), StringComparison.OrdinalIgnoreCase));
+                }
+
+                return Results.Ok(books.ToPagedResult(req.PageSize, req.Page));
             });
 
             group.MapGet("/{id:int}", (int id, IBookRepository repo) =>

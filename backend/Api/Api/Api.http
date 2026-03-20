@@ -5,7 +5,7 @@ GET {{Host}}/hello
 Accept: application/json
 
 ### get all books
-GET {{Host}}/api/books
+GET {{Host}}/api/books?author=ma&pagesize=5&page=1
 Accept: application/json
 
 ### get book by id
