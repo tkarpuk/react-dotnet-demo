@@ -25,11 +25,11 @@ export default function BooksList() {
     }
 
     return (
-        <div>
-            <h2>Books List</h2>
-            <p><button onClick={() => navigate("books/new")}>Add Book</button></p>
-            <table border="" width="80%">
-                <thead>
+        <div> 
+            <h2 className="mb-4">Books List</h2>
+            <p><button onClick={() => navigate("books/new")} className="btn btn btn-success">Add Book</button></p>
+            <table className="table table-striped table-hover">
+                <thead className="table-dark">
                     <tr>
                         <th>ID</th>
                         <th>Title</th>
@@ -49,8 +49,8 @@ export default function BooksList() {
                         <td>{b.year}</td>
                         <td>{b.price}</td>
                         <td>
-                            <button onClick={() => navigate(`books/edit/${b.id}`)}>Edit</button>{' '}
-                            <button onClick={() => handleDelete(b.id)}>Delete</button>
+                            <button onClick={() => navigate(`books/edit/${b.id}`)} className="btn btn-sm btn-primary me-2">Edit</button>{'    '}
+                            <button onClick={() => handleDelete(b.id)} className="btn btn-sm btn-danger">Delete</button>
                         </td>
                     </tr>
                     ))}

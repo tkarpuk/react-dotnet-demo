@@ -12,7 +12,7 @@ export default function TestHello() {
 
     return (
         <div>
-            <h4>Backend says: {hello}!</h4>
+            <h4>This is demo React app. Backend says: "{hello}"</h4>
         </div>
     );
 }
