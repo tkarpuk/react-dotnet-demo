@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:5156';
+const BASE_URL = ''; // if you run locally - write your backend address and port
 
 export async function getHello() {
     const response = await fetch(`${BASE_URL}/hello`);
