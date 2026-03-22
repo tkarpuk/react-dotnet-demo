@@ -33,10 +33,10 @@ The project is fully containerized and can be launched locally using **Docker Co
 git clone https://github.com/<your-username>/react-dotnet-demo.git
 cd react-dotnet-demo
 
-2. Run application
+### 2. Run application
 docker compose up --build
 
-4. Open in browser
+### 3. Open in browser
 Frontend: http://localhost:3000
 Backend API: http://localhost:5000
 
@@ -44,15 +44,17 @@ Backend API: http://localhost:5000
 
 ## 📦 Run Locally (IDEs)
 
-1. Open backend solution in VS, run it and copy work URL (like http://localhost:5xxx)
+### 1. Open backend solution in VS.
+Run it and copy work URL (like http://localhost:5xxx)
 
-2. Open frontend solution in VS Code. Open file frontend\react-app\src\api\BooksApi.js and pase backend URL to the const BASE_URL. Save it.
+### 2. Open frontend solution in VS Code. 
+Open file frontend\react-app\src\api\BooksApi.js and pase backend URL to the const BASE_URL. Save it.
 
-3. Install dependencies:
+### 3. Install dependencies:
 npm install
 
-4. Run dev server:
+### 4. Run dev server:
 npm run dev
 
-5.Open:
+### 5.Open:
 http://localhost:5173 (or link in your terminal)
