@@ -30,10 +30,10 @@ The project is fully containerized and can be launched locally using **Docker Co
 ## 📦 Run Locally (Docker)
 
 ### 1. Clone repository
-git clone https://github.com/<your-username>/react-dotnet-demo.git
-cd react-dotnet-demo
+git clone https://github.com/tkarpuk/react-dotnet-demo.git
 
 ### 2. Run application
+cd react-dotnet-demo
 docker compose up --build
 
 ### 3. Open in browser
